@@ -15,9 +15,9 @@ def start(m, res=False):
 def echo_all(message):
     # bot.reply_to(message, "Проверяем "+ message.text)
     if message.text in allergens.allergens:
-        bot.send_message(message.chat.id, "К сожалению," + message.text + " есть в базе аллергенов. Будьте внимательны при употреблении!")
+        bot.send_message(message.chat.id, "К сожалению, " + message.text + " есть в базе аллергенов. Будьте внимательны при употреблении!")
     else:
-        bot.send_message(message.chat.id, message.text + " не найден в нашей базе аллергенов. Но она не идеальна! Будьте внимательны при употреблении!")
+        bot.send_message(message.chat.id, message.text + " не найден в нашей базе аллергенов. Но есть еще индивидуальная непереносимость! ")
 
 
 bot.polling(none_stop=True, interval=0)
