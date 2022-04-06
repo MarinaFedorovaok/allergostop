@@ -6,11 +6,7 @@ print(bot_id.api)
 @bot.message_handler(commands=["start"])
 def start(m, res=False):
     bot.send_message(m.chat.id, "Давайте проверим, аллергенный ли это продукт. Введите название продукта:")
-# @bot.message_handler(commands=['start'])
-# def send_welcome(message):
-#     print("user wrote: ", message)
-#     bot.reply_to(message, "Давайте проверим, аллергенный ли это продукт. Введите название продукта:")
- 
+
 @bot.message_handler(func=lambda m: True)
 def echo_all(message):
     # bot.reply_to(message, "Проверяем "+ message.text)
