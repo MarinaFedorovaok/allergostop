@@ -1,11 +1,13 @@
 from fuzzywuzzy import process
 from nltk.stem.snowball import RussianStemmer
-l = ['банан', 'яйца', 'мука', 'картофель']
-stemmer  = RussianStemmer()
-stem_l = [stemmer.stem(x) for x in l]  # ['бана', 'яйц', 'мук', 'картофел']
-ingredient = stemmer.stem("картошка")  # 'картошк'
-print(process.extractOne(ingredient, stem_l))  # ('картофел', 67)
-
+l1 = "бана"
+l2 = ['банан', 'яйца', 'мука', 'картофель']
+def find_words (l1, l2):
+    stemmer  = RussianStemmer()
+    stem_l = [stemmer.stem(x) for x in l2]  # ['бана', 'яйц', 'мук', 'картофел']
+    ingredient = stemmer.stem(l1)  # 'картошк'
+    return process.extractOne(ingredient, stem_l)  # ('картофел', 67)
+print(find_words(l1, l2))
 
 
 
