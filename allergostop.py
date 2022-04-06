@@ -14,7 +14,8 @@ def start(m, res=False):
 @bot.message_handler(func=lambda m: True)
 def echo_all(message):
     # bot.reply_to(message, "Проверяем "+ message.text)
-    if message.text in allergens.allergens:
+    find_text = str.lower(message.text)
+    if find_text in allergens.allergens:
         bot.send_message(message.chat.id, "К сожалению, " + message.text + " есть в базе аллергенов. Будьте внимательны при употреблении!")
     else:
         bot.send_message(message.chat.id, message.text + " не найден в нашей базе аллергенов. Но есть еще индивидуальная непереносимость! ")
